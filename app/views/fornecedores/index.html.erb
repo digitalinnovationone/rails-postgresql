@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Fornecedores</h1>
+
+<%= render "/shared/h1_bem_vindo" %>
+
+<div id="fornecedores">
+  <% @fornecedores.each do |fornecedor| %>
+    <%= render fornecedor %>
+    <p>
+      <%= link_to "Mostrar", fornecedor, class: "btn btn-warning" %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to "New fornecedor", new_fornecedor_path, class: "btn btn-primary" %>

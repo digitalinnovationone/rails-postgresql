@@ -1,0 +1,15 @@
+
+<form action="<%= carro.new_record? ? carros_criar_path : carros_alterar_path(carro) %>" method="POST">
+    <% unless carro.new_record? %>
+        <input type="hidden" name="_method" value="put" />
+    <% end %>
+    
+    <div><strong>Nome</strong>: <input type="text" value="<%= carro.nome %>" name="nome"> </div>
+    <div><strong>Modelo</strong>: <input type="text" value="<%= carro.modelo %>" name="modelo"></div>
+    <div><strong>Ano</strong>: <input type="number" value="<%= carro.ano %>" name="ano"></div>
+
+    <hr>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a href="/carros" class="btn btn-warning">Voltar para a lista</a>
+</form>
+

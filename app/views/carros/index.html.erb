@@ -1,0 +1,41 @@
+<section class="text-center container">
+    <h1>Lista de carros</h1>
+
+    <%= render "/shared/h1_bem_vindo" %>
+
+    <hr>
+    <div style="text-align:right">
+        <a href="<%= carros_novo_path %>" class="btn btn-primary">Novo</a>
+    </div>
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @carros.each do |carro| %>
+                <tr>
+                    <td><%= carro.id %></td>
+                    <td><%= carro.nome %></td>
+                    <td><%= carro.modelo %></td>
+                    <td><%= carro.ano %></td>
+                    <td style="width:260px">
+                        <%= link_to "Mostrar", carros_show_path(carro.id), "class": "btn btn-primary" %>
+                        <%= link_to "editar", carros_editar_path(carro.id), "class": "btn btn-warning" %>
+                        <form style="display:inline" action="<%= carros_apagar_path(carro.id) %>" onsubmit="return confirm('Confirma?')" method="POST">
+                            <input type="hidden" name="_method" value="delete" />
+                            <button type="submit" class="btn btn-danger">Apagar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<section>

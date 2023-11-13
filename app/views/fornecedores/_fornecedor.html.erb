@@ -1,0 +1,27 @@
+<div id="<%= dom_id fornecedor %>">
+  <p>
+    <strong>Nome:</strong>
+    <%= fornecedor.nome %>
+  </p>
+
+  <p>
+    <strong>Cnpj:</strong>
+    <%= fornecedor.cnpj %>
+  </p>
+
+  <p>
+    <strong>Endereco:</strong>
+    <%= fornecedor.endereco %>
+  </p>
+
+  <p>
+    <strong>Data Criação:</strong>
+    <%= formata_hora(fornecedor.created_at) %>
+  </p>
+
+  <p>
+    <strong>Soma:</strong>
+    <%= somar_fornecedor(fornecedor) %>
+  </p>
+
+</div>
