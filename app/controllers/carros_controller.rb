@@ -12,40 +12,31 @@ class CarrosController < ApplicationController
     end
 
     def novo
+        @carro = Carro.new
     end
 
     def criar
-        if params[:nome].blank?
-            flash[:error] = "O nome do carro não pode ser vazio"
-            return redirect_to "/carros/novo"
+        @carro = Carro.new(nome: params[:nome], modelo: params[:modelo], ano: params[:ano])
+
+        if @carro.save
+            flash[:success] = "Carro criado com sucesso"
+            return redirect_to carros_path
         end
 
-        Carro.create(nome: params[:nome], modelo: params[:modelo], ano: params[:ano])
-
-        flash[:success] = "Carro criado com sucesso"
-        redirect_to carros_path
+        render :novo, status: :unprocessable_entity
     end
 
     def alterar
-        if params[:id].blank?
-            flash[:error] = "O ID do carro não pode ser vazio"
-            return redirect_to "/carros"
+        @carro = Carro.find(params[:id])
+        @carro.nome = params[:nome]
+        @carro.modelo = params[:modelo]
+        @carro.ano = params[:ano]
+        if @carro.save
+            flash[:success] = "Carro atualizado com sucesso"
+            return redirect_to carros_path
         end
 
-        if params[:nome].blank?
-            flash[:error] = "O nome do carro não pode ser vazio"
-            return redirect_to "/carros/#{params[:id]}/editar"
-        end
-
-        carro = Carro.find(params[:id])
-        carro.nome = params[:nome]
-        carro.modelo = params[:modelo]
-        carro.ano = params[:ano]
-        carro.save
-
-        flash[:success] = "Carro atualizado com sucesso"
-
-        redirect_to carros_path
+        render :editar, status: :unprocessable_entity
     end
 
     def apagar

@@ -1,3 +1,35 @@
 pt-BR:
   hello: "Olá"
-  # Adicione mais traduções aqui
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          one: 'Não é possível excluir o registro pois existe um %{record} dependente'
+          many: 'Não é possível excluir o registro pois existem %{record} dependentes'
+        blank: 'não pode ficar em branco'
+        confirmation: 'não é igual à confirmação'
+        empty: 'não pode ficar vazio'
+        equal_to: 'deve ser igual a %{count}'
+        even: 'deve ser par'
+        exclusion: 'não está disponível'
+        greater_than: 'deve ser maior que %{count}'
+        greater_than_or_equal_to: 'deve ser maior ou igual a %{count}'
+        inclusion: 'não está incluído na lista'
+        invalid: 'não é válido'
+        less_than: 'deve ser menor que %{count}'
+        less_than_or_equal_to: 'deve ser menor ou igual a %{count}'
+        not_a_number: 'não é um número'
+        not_an_integer: 'deve ser um número inteiro'
+        odd: 'deve ser ímpar'
+        taken: 'já está em uso'
+        too_long:
+          one: 'é muito longo (máximo de 1 caracter)'
+          other: 'é muito longo (máximo de %{count} caracteres)'
+        too_short:
+          one: 'é muito curto (mínimo de 1 caracter)'
+          other: 'é muito curto (mínimo de %{count} caracteres)'
+        wrong_length:
+          one: 'não possui o tamanho esperado (deve ter 1 caracter)'
+          other: 'não possui o tamanho esperado (deve ter %{count} caracteres)'
+        other_than: 'deve ser diferente de %{count}'
