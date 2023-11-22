@@ -1,0 +1,2 @@
+module FornecedorTipoHelper
+end

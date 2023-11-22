@@ -14,8 +14,18 @@
   <% end %>
 
   <div>
+    <%= form.label :fornecedor_tipo_id, style: "display: block" %>
+    <%= form.collection_select :fornecedor_tipo_id, FornecedorTipo.all, :id, :nome, { prompt: "Selecione um Tipo" }, { class: "form-control" } %>
+  </div>
+
+  <div>
     <%= form.label :nome, style: "display: block" %>
     <%= form.text_field :nome, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email, class: "form-control" %>
   </div>
 
   <div>
@@ -27,6 +37,27 @@
     <%= form.label :endereco, style: "display: block" %>
     <%= form.text_area :endereco, class: "form-control" %>
   </div>
+
+  <div>
+    <%= form.label :cep, style: "display: block" %>
+    <%= form.text_field :cep, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :senha, style: "display: block" %>
+    <%= form.password_field :senha, class: "form-control" %>
+  </div>
+  <div>
+    <%= form.label :senha_confirmation, style: "display: block" %>
+    <%= form.password_field :senha_confirmation, class: "form-control" %>
+  </div>
+
+
+  <div>
+    <%= form.label :termos_de_uso, style: "display: block" %>
+    <%= form.check_box :termos_de_uso %>
+  </div>
+
   <br>
   <div>
     <%= form.submit "Salvar", class: "btn btn-primary" %>

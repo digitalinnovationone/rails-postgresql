@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Endereços do fornecedor: <%= @fornecedor.nome %></h1>
+
+<div id="fornecedores_enderecos">
+  <% @fornecedores_enderecos.each do |fornecedores_endereco| %>
+    <%= render fornecedores_endereco %>
+    <p>
+      <%= link_to "Show this fornecedores endereco", fornecedor_fornecedores_endereco_path(@fornecedor, fornecedores_endereco) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New fornecedores endereco", new_fornecedor_fornecedores_endereco_path(@fornecedor) %>

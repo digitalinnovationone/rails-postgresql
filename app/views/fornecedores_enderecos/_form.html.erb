@@ -1,0 +1,22 @@
+<%= form_with(model: [@fornecedor, fornecedores_endereco]) do |form| %>
+  <% if fornecedores_endereco.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(fornecedores_endereco.errors.count, "error") %> prohibited this fornecedores_endereco from being saved:</h2>
+
+      <ul>
+        <% fornecedores_endereco.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :endereco_id, style: "display: block" %>
+    <%= form.collection_select :endereco_id, Endereco.all, :id, :logradouro, { prompt: "Selecione um endereço" }, { class: "form-control" } %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

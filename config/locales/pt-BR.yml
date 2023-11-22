@@ -22,6 +22,7 @@ pt-BR:
         not_a_number: 'não é um número'
         not_an_integer: 'deve ser um número inteiro'
         odd: 'deve ser ímpar'
+        accepted: 'precisa ser aceito'
         taken: 'já está em uso'
         too_long:
           one: 'é muito longo (máximo de 1 caracter)'

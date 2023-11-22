@@ -1,4 +1,10 @@
 <div id="<%= dom_id fornecedor %>">
+
+  <p>
+    <strong>Tipo:</strong>
+    <%= fornecedor.fornecedor_tipo&.nome %>
+  </p>
+
   <p>
     <strong>Nome:</strong>
     <%= fornecedor.nome %>
@@ -22,6 +28,11 @@
   <p>
     <strong>Soma:</strong>
     <%= somar_fornecedor(fornecedor) %>
+  </p>
+
+
+  <p>
+    <%= link_to "Cadastrar enderecos", fornecedor_fornecedores_enderecos_path(fornecedor) %>
   </p>
 
 </div>

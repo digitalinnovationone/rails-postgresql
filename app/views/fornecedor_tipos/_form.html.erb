@@ -1,0 +1,22 @@
+<%= form_with(model: fornecedor_tipo) do |form| %>
+  <% if fornecedor_tipo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(fornecedor_tipo.errors.count, "error") %> prohibited this fornecedor_tipo from being saved:</h2>
+
+      <ul>
+        <% fornecedor_tipo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

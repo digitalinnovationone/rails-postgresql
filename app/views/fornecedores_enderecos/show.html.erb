@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @fornecedores_endereco %>
+
+<div>
+  <%= link_to "Edit this fornecedores endereco", edit_fornecedor_fornecedores_endereco_path(@fornecedor, @fornecedores_endereco) %> |
+  <%= link_to "Back to fornecedores endereco", fornecedor_fornecedores_enderecos_path(@fornecedor) %>
+
+  <%= button_to "Destroy this fornecedores endereco", fornecedor_fornecedores_endereco_path(@fornecedor, @fornecedores_endereco), method: :delete %>
+</div>
