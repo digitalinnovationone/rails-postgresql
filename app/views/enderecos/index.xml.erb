@@ -1,0 +1,9 @@
+<enderecos>
+  <% @enderecos.each do |endereco| %>
+    <endereco>
+      <id><%= endereco.id %></id>
+      <logradouro><%= endereco.logradouro %></logradouro>
+      <numero><%= endereco.numero %></numero>
+    </endereco>
+  <% end %>
+</enderecos>
