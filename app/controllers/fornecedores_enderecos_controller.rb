@@ -1,4 +1,5 @@
 class FornecedoresEnderecosController < ApplicationController
+  layout 'logada'
   before_action :set_fornecedores_endereco, only: %i[ show edit update destroy ]
   before_action :set_fornecedor
 

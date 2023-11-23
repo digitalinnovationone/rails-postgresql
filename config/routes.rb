@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :useres
   resources :administradores
   resources :enderecos
   resources :enderecoses
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   get '/login', to: 'login#index'
-  get '/sair', to: 'login#sair'
+  delete '/users/sign_out', to: 'devise/sessions#destroy'
   post '/login', to: 'login#logar'
 
   root "home#index"

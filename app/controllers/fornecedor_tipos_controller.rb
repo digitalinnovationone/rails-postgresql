@@ -1,5 +1,6 @@
 class FornecedorTiposController < ApplicationController
   before_action :set_fornecedor_tipo, only: %i[ show edit update destroy ]
+  layout 'logada'
 
   # GET /fornecedor_tipo or /fornecedor_tipo.json
   def index

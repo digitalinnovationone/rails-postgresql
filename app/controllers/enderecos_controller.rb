@@ -1,5 +1,6 @@
 class EnderecosController < ApplicationController
   before_action :set_endereco, only: %i[ show edit update destroy ]
+  layout 'logada'
 
   # GET /enderecos or /enderecos.json
   def index

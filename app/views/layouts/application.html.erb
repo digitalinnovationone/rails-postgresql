@@ -25,27 +25,9 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/carros">Carros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/fornecedores">Fornecedores</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/fornecedor_tipos">Tipos de fornecedores</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/enderecos">Endereços</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/sair">Sair</a>
+                <a class="nav-link" href="/useres/sign_in">Login</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Carro desejado ..." aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-
-            <span style="color: #fff">&nbsp;<%= @adm.nome %></span>
           </div>
         </div>
       </nav>
@@ -56,15 +38,17 @@
         <div class="alert alert-success" role="alert">
           <%= flash[:success] %>
         </div>
-      <% end %>
-
-      <% if flash[:error] %>
+      <% elsif flash[:error] %>
         <div class="alert alert-danger">
             <h2>Confira o erro abaixo</h2>
             <ul>
                 <li><%= flash[:error] %></li>
             </ul>
         </div>
+      <% else %>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-danger flash <%= key %>"><%= value %></div>
+        <% end %>
       <% end %>
 
       <%= yield %>

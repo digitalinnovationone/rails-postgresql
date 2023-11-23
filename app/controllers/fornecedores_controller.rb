@@ -1,5 +1,6 @@
 class FornecedoresController < ApplicationController
   before_action :set_fornecedor, only: %i[ show edit update destroy ]
+  layout 'logada'
 
   # GET /fornecedores or /fornecedores.json
   def index

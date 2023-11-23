@@ -1,5 +1,6 @@
 class AdministradoresController < ApplicationController
   before_action :set_administrador, only: %i[ show edit update destroy ]
+  layout 'logada'
 
   # GET /administradores or /administradores.json
   def index
