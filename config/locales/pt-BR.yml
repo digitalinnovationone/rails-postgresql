@@ -1,5 +1,22 @@
 pt-BR:
   hello: "Olá"
+
+  menu:
+    home: "Home"
+    carros: "Carros"
+    fornecedores: "Fornecedores"
+    tipos_de_fornecedores: "Tipos de fornecedores"
+    enderecos: "Encereços"
+    stimulus: "Página stimulus"
+    sair: "Sair"
+    i18n_mudar: "Mudar para inglês"
+    lingua_mudar: "en"
+
+  home:
+    titulo: "Bem vindo ao sistema de veículos"
+    descricao: "Sou Danilo Aparecido, professor na Digital Innovation One (DIO), e nesta aula, estamos mergulhando no fascinante mundo do ERB do Rails. Aqui, vocês vão aprender a transformar ideias em layouts impressionantes, explorando a flexibilidade e o poder do Rails para criar interfaces dinâmicas. Este exemplo é apenas um vislumbre do que podemos alcançar juntos. Vamos em frente!"
+    botao: "Ver os carros"
+
   activerecord:
     errors:
       messages:

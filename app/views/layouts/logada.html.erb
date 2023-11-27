@@ -22,20 +22,28 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link <%= params[:controller] == "home" ? "active" : "" %>" aria-current="page" href="/"><%= t("menu.home") %></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/carros">Carros</a>
+                <a class="nav-link <%= params[:controller] == "carros" ? "active" : "" %>" href="/carros"><%= t("menu.carros") %></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/fornecedores">Fornecedores</a>
+                <a class="nav-link <%= params[:controller] == "fornecedores" ? "active" : "" %>" href="/fornecedores"><%= t("menu.fornecedores") %></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/fornecedor_tipos">Tipos de fornecedores</a>
+                <a class="nav-link <%= params[:controller] == "fornecedor_tipos" ? "active" : "" %>" href="/fornecedor_tipos"><%= t("menu.tipos_de_fornecedores") %></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/enderecos">Endereços</a>
+                <a class="nav-link <%= params[:controller] == "enderecos" ? "active" : "" %>" href="/enderecos"><%= t("menu.enderecos") %></a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link <%= params[:controller] == "stimulus" ? "active" : "" %>" href="/stimulus"><%= t("menu.stimulus") %></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/bandeira?i18n=<%= t("menu.lingua_mudar") %>"><%= t("menu.i18n_mudar") %></a>
+              </li>
+
               <li class="nav-item">
                 <%= form_with url: destroy_user_session_path, method: :delete do %>
                   <button type="submit" class="nav-link sair-btn" >Sair</button>

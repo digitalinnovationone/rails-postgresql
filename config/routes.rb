@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :fornecedores_enderecos
   end
 
+  get '/bandeira', to: 'bandeira#index'
+  
+  get '/stimulus', to: 'stimulus#index'
+
   get '/login', to: 'login#index'
   delete '/users/sign_out', to: 'devise/sessions#destroy'
   post '/login', to: 'login#logar'

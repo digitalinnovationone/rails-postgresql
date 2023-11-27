@@ -2,7 +2,7 @@ class CarrosController < ApplicationController
     layout 'logada'
     
     def index
-        @carros = Carro.all
+        @carros = Carro.paginate(page: params[:page] || 1, per_page: 3)
     end
 
     def show

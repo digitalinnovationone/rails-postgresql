@@ -29,3 +29,19 @@
 
 en:
   hello: "Hello world"
+
+  menu:
+    home: "Home"
+    carros: "Cars"
+    fornecedores: "Suppliers"
+    tipos_de_fornecedores: "Types of Suppliers"
+    enderecos: "Addresses"
+    stimulus: "Stimulus page"
+    sair: "exit"
+    i18n_mudar: "Change to Portuguese"
+    lingua_mudar: "pt-BR"
+  
+  home:
+    titulo: "Welcome to Cars System"
+    descricao: "I am Danilo Aparecido, a teacher at Digital Innovation One (DIO), and in this class, we are diving into the fascinating world of Rails' ERB. Here, you will learn to transform ideas into impressive layouts, exploring the flexibility and power of Rails to create dynamic interfaces. This example is just a glimpse of what we can achieve together. Let's move forward!"
+    botao: "See the cars"
