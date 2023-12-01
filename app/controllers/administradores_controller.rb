@@ -39,6 +39,9 @@ class AdministradoresController < ApplicationController
   def update
     respond_to do |format|
       if @administrador.update(administrador_params)
+
+        EnviarEmailMailer.enviar_dados_administrador(@administrador).deliver_now
+
         format.html { redirect_to administrador_url(@administrador), notice: "Administrador was successfully updated." }
         format.json { render :show, status: :ok, location: @administrador }
       else
