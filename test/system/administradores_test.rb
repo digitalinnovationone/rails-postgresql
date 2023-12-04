@@ -7,7 +7,7 @@ class AdministradoresTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit administradores_url
-    assert_selector "h1", text: "Administradores"
+    assert_selector "h1", text: "Administradores - #{Administrador.first.nome}"
   end
 
   test "should create administrador" do
@@ -17,9 +17,9 @@ class AdministradoresTest < ApplicationSystemTestCase
     fill_in "Email", with: @administrador.email
     fill_in "Nome", with: @administrador.nome
     fill_in "Senha", with: @administrador.senha
-    click_on "Create Administrador"
+    click_on "Salvar"
 
-    assert_text "Administrador was successfully created"
+    assert_text "Administrador foi criado com sucesso"
     click_on "Back"
   end
 
@@ -30,7 +30,7 @@ class AdministradoresTest < ApplicationSystemTestCase
     fill_in "Email", with: @administrador.email
     fill_in "Nome", with: @administrador.nome
     fill_in "Senha", with: @administrador.senha
-    click_on "Update Administrador"
+    click_on "Salvar"
 
     assert_text "Administrador was successfully updated"
     click_on "Back"

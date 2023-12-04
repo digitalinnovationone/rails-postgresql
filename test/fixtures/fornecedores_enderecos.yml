@@ -1,9 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  endereco: one
-  fornecedor: one
-
-two:
-  endereco: two
-  fornecedor: two

@@ -1,6 +1,8 @@
 class AdministradoresController < ApplicationController
   before_action :set_administrador, only: %i[ show edit update destroy ]
-  layout 'logada'
+  skip_before_action :authenticate_user!
+
+  # layout 'logada'
 
   # GET /administradores or /administradores.json
   def index
@@ -23,10 +25,11 @@ class AdministradoresController < ApplicationController
   # POST /administradores or /administradores.json
   def create
     @administrador = Administrador.new(administrador_params)
+    preparar_adm
 
     respond_to do |format|
       if @administrador.save
-        format.html { redirect_to administrador_url(@administrador), notice: "Administrador was successfully created." }
+        format.html { redirect_to administrador_url(@administrador), notice: "Administrador foi criado com sucesso." }
         format.json { render :show, status: :created, location: @administrador }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -70,5 +73,9 @@ class AdministradoresController < ApplicationController
     # Only allow a list of trusted parameters through.
     def administrador_params
       params.require(:administrador).permit(:nome, :email, :senha)
+    end
+
+    def preparar_adm
+      @administrador.nome = @administrador.nome + "- teste"
     end
 end
