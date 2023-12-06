@@ -1,6 +1,6 @@
 class Carro < ApplicationRecord
     validates_presence_of :nome, :modelo, :ano
-    validates_length_of :nome, minimum: 10, maximum: 100
+    validates_length_of :nome, minimum: 2, maximum: 100
     validates_numericality_of :ano, greater_than_or_equal_to: 2000
     validates_numericality_of :ano, less_than_or_equal_to: Time.now.year
     validates_numericality_of :ano, only_integer: true
@@ -42,4 +42,11 @@ class Carro < ApplicationRecord
     # create
     # destroy
 
+
+    def self.busca_carro_por_id(id)
+        carro = Carro.find(id)
+        # carro = Carro.where(id: id).first
+        carro.nome = "#{carro.nome} - alterao pelo metodo busca_carro_por_id"
+        carro
+    end
 end
