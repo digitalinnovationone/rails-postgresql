@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/digitalinnovationone/estados_brasileiros_gem.git
+  revision: f585f943a96748ca59bc2e8994d566e1c04f67c7
+  specs:
+    estados_brasileiros_active_record (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -322,6 +328,7 @@ DEPENDENCIES
   database_cleaner
   debug
   devise
+  estados_brasileiros_active_record!
   importmap-rails
   jbuilder
   pg (~> 1.1)

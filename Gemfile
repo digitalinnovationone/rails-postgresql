@@ -48,6 +48,8 @@ gem "sendgrid-ruby"
 
 gem "will_paginate"
 
+gem 'estados_brasileiros_active_record', git: "https://github.com/digitalinnovationone/estados_brasileiros_gem.git"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

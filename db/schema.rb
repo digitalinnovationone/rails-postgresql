@@ -41,6 +41,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_204538) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "estados", force: :cascade do |t|
+    t.string "nome"
+    t.string "sigla"
+  end
+
   create_table "fornecedor_tipos", force: :cascade do |t|
     t.string "nome", limit: 100
     t.datetime "created_at", null: false
