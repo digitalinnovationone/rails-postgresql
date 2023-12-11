@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+
+Administrador.create(nome: 'Danilo', email: 'danilo@teste.com', senha: '123456') if Administrador.where(email: 'danilo@teste.com').count == 0
 Carro.create(nome: 'Fiesta', modelo: 'Ford', ano: 2009) if Carro.where(nome: 'Fiesta').count == 0
 Carro.create(nome: 'Gol', modelo: 'Volkswagen', ano: 2011) if Carro.where(nome: 'Gol').count == 0
 Carro.create(nome: 'Civic', modelo: 'Honda', ano: 2015) if Carro.where(nome: 'Civic').count == 0
