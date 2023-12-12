@@ -23,6 +23,7 @@ unit-test-unidade-job:
 
   stage: test-unidade
   script:
+    - bundle install
     - rspec
 
 unit-test-comportamento-job:
