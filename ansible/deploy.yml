@@ -1,0 +1,12 @@
+- hosts:
+  - app-rails
+  became: yes
+  tasks:
+    - name: "Fazer git pull do código"
+      shell: cd /root/rails-postgresql & git pull
+    
+    - name: "Derrubar aplicação que está rodando na porta 3000"
+      shell: kill $(lsof -t -i:3000)
+
+    - name: "Iniciar aplicação"
+      shell: cd /root/rails-postgresql & nohup rails s &
