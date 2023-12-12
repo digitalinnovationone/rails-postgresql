@@ -12,7 +12,13 @@
 
     - name: "Iniciar aplicação Rails"
       shell: |
-        bash -c "cd /root/rails-postgresql && sh start_production.sh"
+        bash -c "source /usr/local/rvm/scripts/rvm && rvm use 3.2.1 && cd /root/rails-postgresql && sh start_production.sh &"
       args:
         executable: /bin/bash
+      async: 30
+      poll: 0
+
+    - name: "Aguardar a aplicação iniciar"
+      pause:
+        seconds: 5
 
