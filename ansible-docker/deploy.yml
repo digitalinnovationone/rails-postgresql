@@ -1,0 +1,23 @@
+- hosts: app-rails
+  become: yes
+  tasks:
+    - name: "Fazer git pull do código"
+      shell: |
+        cd /root/rails-postgresql
+        git pull
+
+
+    - name: "Executando docker-compose build"
+      shell: |
+        cd /root/rails-postgresql
+        docker-compose build
+
+    - name: "Executando docker-compose up"
+      shell: |
+        cd /root/rails-postgresql
+        docker-compose up -d
+
+    - name: "Aguardar a aplicação iniciar"
+      pause:
+        seconds: 5
+
