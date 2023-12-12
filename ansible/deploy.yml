@@ -1,0 +1,24 @@
+- hosts: app-rails
+  become: yes
+  tasks:
+    - name: "Fazer git pull do código"
+      shell: |
+        cd /root/rails-postgresql
+        git pull
+
+    - name: "Derrubar aplicação que está rodando na porta 3000"
+      shell: kill $(lsof -t -i:3000)
+      ignore_errors: yes
+
+    - name: "Iniciar aplicação Rails"
+      shell: |
+        bash -c "source /usr/local/rvm/scripts/rvm && rvm use 3.2.1 && cd /root/rails-postgresql && sh start_production.sh &"
+      args:
+        executable: /bin/bash
+      async: 30
+      poll: 0
+
+    - name: "Aguardar a aplicação iniciar"
+      pause:
+        seconds: 5
+
