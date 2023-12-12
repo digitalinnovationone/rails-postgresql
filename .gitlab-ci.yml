@@ -1,47 +1,11 @@
 image: ruby:3.2.1
 
 stages:
-  # - build
-  # - test-unidade
   - test-comportamento
-  - deploy
-
-build-job:
-  rules:
-    - if: $CI_COMMIT_TAG
-
-  stage: build
-  script:
-    - bundle install
-
-unit-test-unidade-job:
-  rules:
-    - if: $CI_COMMIT_TAG
-
-  dependencies:
-    - build-job
-
-  stage: test-unidade
-  script:
-    - bundle install
-    - rspec
 
 unit-test-comportamento-job:
-  # rules:
-  #   - if: $CI_COMMIT_TAG
-
   stage: test-comportamento
   script:
     - bundle install
     - RAILS_ENV=test rails s &
     - cucumber
-
-deploy-job:
-  # rules:
-  #   - if: $CI_COMMIT_TAG
-
-  stage: deploy
-  environment: production
-  script:
-    - echo "Deploying application..."
-    - echo "Application successfully deployed."
