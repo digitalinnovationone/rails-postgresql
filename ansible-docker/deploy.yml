@@ -4,6 +4,7 @@
     - name: "Fazer git pull do código"
       shell: |
         cd /root/rails-postgresql
+        git checkout device
         git pull
 
 

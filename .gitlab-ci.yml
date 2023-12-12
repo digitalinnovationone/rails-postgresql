@@ -1,11 +1,17 @@
 image: ruby:3.2.1
 
 stages:
-  - test-comportamento
+  - deploy
 
-unit-test-comportamento-job:
-  stage: test-comportamento
+deploy-job:
+
+  image: didox/ubuntu-ansible
+  stage: deploy
+  when: manual
+
+
   script:
-    - bundle install
-    - RAILS_ENV=test rails s &
-    - cucumber
+    - cd ansible-docker
+    - echo "$CHAVE_PEM_SERVIDOR" | tr -d '\r' > chave.pem
+    - chmod 400 chave.pem
+    - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts deploy.yml -u ubuntu --private-key chave.pem
