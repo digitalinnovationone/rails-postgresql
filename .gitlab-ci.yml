@@ -18,9 +18,12 @@ unit-test-unidade-job:
   rules:
     - if: $CI_COMMIT_TAG
 
+  dependencies:
+    - build
+    
   stage: test-unidade
   script:
-    - echo "Running unit tests... This will take about 60 seconds."
+    - rspec
 
 unit-test-comportamento-job:
   rules:
