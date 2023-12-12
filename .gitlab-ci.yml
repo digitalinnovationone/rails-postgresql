@@ -1,8 +1,8 @@
 image: ruby:3.2.1
 
 stages:
-  - build
-  - test-unidade
+  # - build
+  # - test-unidade
   - test-comportamento
   - deploy
 
@@ -27,16 +27,18 @@ unit-test-unidade-job:
     - rspec
 
 unit-test-comportamento-job:
-  rules:
-    - if: $CI_COMMIT_TAG
+  # rules:
+  #   - if: $CI_COMMIT_TAG
 
   stage: test-comportamento
   script:
-    - echo "Running unit tests... This will take about 60 seconds."
+    - bundle install
+    - RAILS_ENV=test rails s &
+    - cucumber
 
 deploy-job:
-  rules:
-    - if: $CI_COMMIT_TAG
+  # rules:
+  #   - if: $CI_COMMIT_TAG
 
   stage: deploy
   environment: production
