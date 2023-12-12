@@ -21,7 +21,7 @@
         echo "  database: <%= ENV[\"DB\"] %>" >> database.yml
         echo "  host: <%= ENV[\"HOST\"] %>" >> database.yml
         echo "  username: <%= ENV[\"USER\"] %>" >> database.yml
-        echo "  password: 'p$o5^stsgfDSradAes'" >> database.yml
+        echo "  password: '<%= ENV[\"PASS\"] %>'" >> database.yml
 
     - name: Criar docker-compose.yml
       shell: |
@@ -37,6 +37,7 @@
         echo "      DB: ecommerce_postgresql_production" >> docker-compose.yml
         echo "      HOST: rails-app.crbck5ec0oxi.sa-east-1.rds.amazonaws.com" >> docker-compose.yml
         echo "      USER: postgres" >> docker-compose.yml
+        echo "      PASS: postgresdiopass" >> docker-compose.yml
         echo "      SECRET_KEY_BASE: 8213b4151a0b78f6667f00eb0f2e3932251e667a2cf52a8e5ed956f644aae462c2d00606bb2ff0517aa8bcd1a0dbb80e7cbe6fb4a6e93453260012bf0cb96e1a" >> docker-compose.yml
         echo "      RAILS_MAX_THREADS: 5" >> docker-compose.yml
 
