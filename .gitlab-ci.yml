@@ -1,17 +1,58 @@
 image: ruby:3.2.1
 
 stages:
+  - build
+  - test-unidade
+  - test-comportamento
   - deploy
 
+build-job:
+  rules:
+    - if: $CI_COMMIT_TAG
+
+  stage: build
+  script:
+    - bundle install
+
+unit-test-unidade-job:
+  rules:
+    - if: $CI_COMMIT_TAG
+
+  dependencies:
+    - build-job
+
+  stage: test-unidade
+  script:
+    - bundle install
+    - rspec
+
+unit-test-comportamento-job:
+  rules:
+    - if: $CI_COMMIT_TAG
+
+  dependencies:
+    - unit-test-unidade-job
+
+  stage: test-comportamento
+  script:
+    - bundle install
+    - RAILS_ENV=test rails s &
+    - cucumber
+
 deploy-job:
+  rules:
+    - if: $CI_COMMIT_TAG
 
   image: didox/ubuntu-ansible
   stage: deploy
   when: manual
 
+  dependencies:
+    - unit-test-comportamento-job
 
   script:
     - cd ansible-docker
     - echo "$CHAVE_PEM_SERVIDOR" | tr -d '\r' > chave.pem
     - chmod 400 chave.pem
     - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts deploy.yml -u ubuntu --private-key chave.pem
+
