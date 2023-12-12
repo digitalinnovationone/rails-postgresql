@@ -97,14 +97,14 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    domain: 'seudominio.com',
-    user_name: 'apikey',
-    password: Rails.application.credentials.sendgrid[:api_key],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.sendgrid.net',
+  #   port: 587,
+  #   domain: 'seudominio.com',
+  #   user_name: 'apikey',
+  #   password: Rails.application.credentials.sendgrid[:api_key],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
 end
