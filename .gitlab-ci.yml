@@ -51,11 +51,9 @@ deploy-job:
     - unit-test-comportamento-job
 
   script:
-    - mkdir ansible-deploy
     - cd ansible-deploy
     - echo "$CHAVE_PEM_SERVIDOR" | tr -d '\r' > chave.pem
     - echo "$HOSTS" | tr -d '\r' > hosts
-    - echo "$DEPLOY_ANSIBLE" | tr -d '\r' > deploy.yml
     - chmod 400 chave.pem
     - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts deploy.yml -u ubuntu --private-key chave.pem
 

@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DB: ecommerce_postgresql_production
+      HOST: ${DB_HOST}
+      USER: ${DB_USER}
+      PASS: ${DB_PASS}
+      SECRET_KEY_BASE: 8213b4151a0b78f6667f00eb0f2e3932251e667a2cf52a8e5ed956f644aae462c2d00606bb2ff0517aa8bcd1a0dbb80e7cbe6fb4a6e93453260012bf0cb96e1a
+      RAILS_MAX_THREADS: 5
+    command: >
+      sh -c " 
+      rake db:create RAILS_ENV=production && 
+      rake db:migrate RAILS_ENV=production && 
+      rake db:seed RAILS_ENV=production && 
+      rails s -b '0.0.0.0' -p 3000 -e production 
+      "

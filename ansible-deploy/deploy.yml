@@ -1,0 +1,34 @@
+- hosts: app-rails
+  become: yes
+  tasks:
+    - name: "Fazer git pull do código"
+      shell: |
+        cd /root/rails-postgresql
+        git checkout .
+        git checkout device
+        git pull origin device
+
+    - name: Criar database.yml
+      copy:
+        src: "database.yml"
+        dest: "/root/rails-postgresql/config"
+
+    - name: Criar docker-compose.yml
+      copy:
+        src: "docker-compose.yml"
+        dest: "/root/rails-postgresql"
+
+    - name: "Executando docker-compose build"
+      shell: |
+        cd /root/rails-postgresql
+        docker-compose build
+
+    - name: "Executando docker-compose up"
+      shell: |
+        cd /root/rails-postgresql
+        docker-compose up -d
+
+    - name: "Aguardar a aplicação iniciar"
+      pause:
+        seconds: 5
+
